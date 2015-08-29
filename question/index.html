@@ -1,0 +1,300 @@
+<html>
+<head>
+        <style>
+            html {
+                width:100%;
+                height:100%;
+                margin:0;
+            }
+            
+            body {
+                -webkit-animation-delay: 0.1s;
+                -webkit-animation-name: fontfix;
+                -webkit-animation-duration: 0.1s;
+                -webkit-animation-iteration-count: 1;
+                -webkit-animation-timing-function: linear;
+            }
+
+            @-webkit-keyframes fontfix {
+                from { opacity: 1; }
+                to   { opacity: 1; }
+            }
+            
+            body {
+                background:url("http://static.tumblr.com/mv7bfmi/g9anjdnup/school.png");
+                font-family:'open sans', sans-serif;
+                text-align:center;
+            }
+            
+             #tumblr_controls {
+                display:none !important;
+            }
+            
+            h1 {
+                font-family: 'arvo';
+                font-size:40px;
+                text-transform:uppercase;
+                text-align:center;
+                text-shadow: .5px .5px 0 #e8514f, 1px 1px 0 #e8514f,1.5px 1.5px 0 #e8514f, 2px 2px 0 #e8514f;
+                line-height:100%;
+            }
+            
+            h1 span {
+                font-size:45px;
+            }
+            
+            button {
+                padding:10px;
+                margin-top:20px;
+                background:#00b81e;
+                color:white;
+                border:none;
+                border-radius:5px;
+                width:100%;
+                border-bottom:3px solid rgba(0,0,0,.2);
+                outline:none!important;
+                font-family:'open sans';
+                font-size:18px;
+            }
+            
+            button:active {
+                border-bottom:1px solid rgba(0,0,0,.2);
+                margin-top:22px;
+            }
+            
+            #content {
+                margin:auto;
+                padding:25px;
+                padding-bottom:5px;
+                padding-top:5px;
+                background:white;
+                box-shadow:3px 3px 20px rgba(0,0,0,.7);
+                margin-top:12%;
+                position:relative;
+                display:inline-block;
+                width:724px;
+            }
+            
+            #cont {
+                display:inline-block;
+                position:relative;
+                top:0;
+                margin-bottom:5px;
+            }
+            .nametop {
+                border-color:#008bb8 solid;
+                border-radius:5px 5px 0px 0px;
+                border-top:3px #008bb8 solid;
+                border-left:3px #008bb8 solid;
+                border-right:3px #008bb8 solid;
+                position:relative;
+                width:722px;
+                margin: 0px 5px 0px 5px;
+                text-align:left;
+            }
+            .title {
+                color:white;
+                background:#008bb8;
+                position:relative;
+                display:inline-block;
+                border-radius:5px 0px 5px 0px;
+                padding:10px;
+                top:-3px;
+                left:-3px;
+                font-style:italic;
+                font-weight:300;
+                font-size:12px;
+            }
+            .namebottom {
+                border-bottom:3px #008bb8 solid;
+                border-left:3px #008bb8 solid;
+                border-right:3px #008bb8 solid;
+                border-radius:0px 0px 5px 5px;
+                padding:5px;
+                padding-bottom:15px;
+                text-align:center;
+                position:relative;
+                width:712px;
+                font-weight:400;
+                font-size:20px;
+                margin: 0px 5px 0px 5px;
+            }
+        </style>
+    </style></head>
+    <body onload="generate()">
+    
+        <script>
+    
+/* DOES, CAN 0-9 */
+var endings = ["lie beyond language?", "affect the beliefs of a society?", "affect creativity?", "play a role in mathematics?", "give us knowledge?", "show we have made ethical progress?", "transend culture?", "shape our thoughts?", "posess an ethical responsibility?", "allow for intuition?",
+
+/* HOW IS 10-11 */
+    "different or similar to other areas of knowledge?", "used in math?",
+
+/* CAN, HOW CAN, HOW FAR CAN, SHOULD 12-16 */
+    "be a way of knowing?", "change our perception of things?", "be constructed without sensory perception?", "be as certain as mathematical truths?", "affect our ability to reason?",
+
+/* --- CAN, HOW CAN, HOW FAR CAN, SHOULD 17*/
+    "work together?",
+
+/* SHOULD 18-19 */
+    "have an ethical function?", "be beautiful?",
+
+/* IS 20-21 */
+    "the most certain area of knowledge?", "irrelevant to the construction of mathematical knowledge?",
+
+/* ARE 22 */
+    "restricted by the language they use?",
+
+/* TO WHAT EXTENT IS 23 */
+    "a way of knowing?",
+
+/* TO WHAT EXTENT DOES 24-27 */
+    "build moral codes?", "shape moral belief?", "change?", "describe the real world?",
+
+/* WHAT ROLE DOES 28-30 */
+    "play in history?", "play in the construction of reality?", "play in different areas of knowledge?",
+
+/* IS ALL 31 */
+    "history biased?"];
+
+/* NOUNS!! 0-20 */
+var nouns = ["language", "religious experience", "ethical knowledge", "possesion of knowledge", "everyone", "perception", "history", "math", "belief", "science", "new technology", "imagination", "ethical knowledge", "learning from CAS", "institution", "emotion", "historical objectivity", "the emotion of empathy", "emotion", "knowledge in science", "perception",
+
+/* --- NOUNS!! 21-28 */
+    "our values", "reason and imagination", "beliefs", "ethical truths", "statistics", "historical claims", "the arts", "ethical responsibilities"];
+
+function generate() {
+var decide;
+
+var endingNum = Math.floor(Math.random() * 31);
+var end = endings[endingNum];
+
+var middleNum = Math.floor(Math.random() * 28);
+var middle = nouns[middleNum];
+
+var plural;
+
+if (middleNum < 21 /*# nonplural nouns*/ ) {
+    plural = false;
+} else {
+    plural = true;
+}
+
+
+var beginning;
+
+if /*DOES, CAN*/
+(endingNum < 10) {
+    decide = Math.floor(Math.random() * 2);
+    if (decide === 1) {
+        if (plural === false) {
+            beginning = "Does";
+        } else {
+            beginning = "Do";
+        }
+    } else {
+        beginning = "Can";
+    }
+} /*HOW IS, HOW ARE*/
+else if (endingNum > 9 && endingNum < 12) {
+    if (plural === false) {
+        beginning = "How is";
+    } else {
+        beginning = "How are";
+    }
+
+} else if (endingNum > 11 && endingNum < 18) {
+    decide = Math.floor(Math.random() * 4);
+    if (endingNum === 17) {
+        if (plural === false) {
+            var nounTwo = nouns[Math.floor(Math.random() * 17)];
+            if (decide === 1) {
+                beginning = "Can " + nounTwo + " and";
+            } else if (decide === 2) {
+                beginning = "How can " + nounTwo + " and";
+            } else if (decide === 3) {
+                beginning = "How far can " + nounTwo + " and";
+            } else {
+                beginning = "Should " + nounTwo + " and";
+            }
+        } else {
+            if (decide === 1) {
+                beginning = "Can";
+            } else if (decide === 2) {
+                beginning = "How can";
+            } else if (decide === 3) {
+                beginning = "How far can";
+            } else {
+                beginning = "Should";
+            }
+        }
+
+    } else {
+        if (decide === 1) {
+            beginning = "Can";
+        } else if (decide === 2) {
+            beginning = "How can";
+        } else if (decide === 3) {
+            beginning = "How far can";
+        } else {
+            beginning = "Should";
+        }
+    }
+} else if (endingNum > 17 && endingNum < 20) {
+    beginning = "Should";
+} else if (endingNum > 19 && endingNum < 23) {
+    if (endingNum === 22) {
+        if (plural === true) {
+            beginning = "Are";
+        } else {
+            beginning = "Is";
+            end = "restricted by the language it uses?";
+        }
+    } else {
+        if (plural === false) {
+            beginning = "Is";
+        } else {
+            beginning = "Are";
+        }
+    }
+} else if (endingNum === 23) {
+    beginning = "To what extent is";
+} else if (endingNum > 23 && endingNum < 28) {
+    if (plural === false) {
+        beginning = "To what extent does";
+    } else {
+        beginning = "To what extent do";
+    }
+} else if (endingNum > 27 && endingNum < 31) {
+    if (plural === true) {
+        beginning = "What role do";
+    } else {
+        beginning = "What role does";
+    }
+} else if (endingNum === 31) {
+    beginning = "Is all";
+}
+
+
+document.getElementById("one").innerHTML = beginning + " " + middle + " " + end;}
+</script>
+
+        <div id="content">
+            <h1><span>t</span>heory of <span>k</span>nowledge<br><span>q</span>uestion <span>g</span>enerator</h1>
+            <div id="cont">
+            <div class="nametop">
+                <div class="title">your TOK question is:</div>
+            </div>
+            <div class="namebottom"><p id="one">To what extent does religious experience describe the real world?</p></div>
+            </div>
+            
+            
+            
+            <button onclick="generate()">generate new question</button>
+            <i><p style="color:gray; text-align:right; font-size:11px">inspired by <a href="https://twitter.com/TokBot" target="_blank" style="color:#55acee">@tokbot</a> on twitter </p></i>
+        </div>
+        
+    
+
+</body></html>

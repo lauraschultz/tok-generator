@@ -1,0 +1,193 @@
+<html>
+<head>
+
+    
+<link href="http://fonts.googleapis.com/css?family=Arvo:700,700italic" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400" rel="stylesheet" type="text/css">
+        <title>TOK Prompt Generator</title>
+        <link rel="icon" type="image/png" href="http://static.tumblr.com/mv7bfmi/LSxnjgyoa/school_copy.png">
+        <style>
+            html {
+                width:100%;
+                height:100%;
+                margin:0;
+            }
+            
+            body {
+                -webkit-animation-delay: 0.1s;
+                -webkit-animation-name: fontfix;
+                -webkit-animation-duration: 0.1s;
+                -webkit-animation-iteration-count: 1;
+                -webkit-animation-timing-function: linear;
+            }
+
+            @-webkit-keyframes fontfix {
+                from { opacity: 1; }
+                to   { opacity: 1; }
+            }
+            
+            body {
+                background:url("http://static.tumblr.com/mv7bfmi/g9anjdnup/school.png");
+                font-family:'open sans', sans-serif;
+                text-align:center;
+            }
+        
+            h1 {
+                font-family: 'arvo';
+                font-size:40px;
+                text-transform:uppercase;
+                text-align:center;
+                text-shadow: .5px .5px 0 #e8514f, 1px 1px 0 #e8514f,1.5px 1.5px 0 #e8514f, 2px 2px 0 #e8514f;
+                line-height:100%;
+            }
+            
+            h1 span {
+                font-size:45px;
+            }
+            
+            button {
+                padding:10px;
+                margin-top:20px;
+                background:#00b81e;
+                color:white;
+                border:none;
+                border-radius:5px;
+                width:100%;
+                border-bottom:3px solid rgba(0,0,0,.2);
+                outline:none!important;
+                font-family:'open sans';
+                font-size:18px;
+            }
+            
+            button:active {
+                border-bottom:1px solid rgba(0,0,0,.2);
+                margin-top:22px;
+            }
+            
+            #content {
+                margin:0 auto;
+                padding:25px;
+                padding-bottom:5px;
+                padding-top:5px;
+                background:white;
+                box-shadow:3px 3px 20px rgba(0,0,0,.7);
+                width:724px;
+                position:relative;
+                margin-top:140px;
+            }
+            
+            #cont {
+                display:inline-block;
+                position:relative;
+                top:0;
+                margin-bottom:5px;
+            }
+            .nametop {
+                border-color:#008bb8 solid;
+                border-radius:5px 5px 0px 0px;
+                border-top:3px #008bb8 solid;
+                border-left:3px #008bb8 solid;
+                border-right:3px #008bb8 solid;
+                position:relative;
+                width:222px;
+                margin: 0px 5px 0px 5px;
+                text-align:left;
+            }
+            .title {
+                color:white;
+                background:#008bb8;
+                position:relative;
+                display:inline-block;
+                border-radius:5px 0px 5px 0px;
+                padding:10px;
+                top:-3px;
+                left:-3px;
+                font-style:italic;
+                font-weight:300;
+                font-size:12px;
+            }
+            .namebottom {
+                border-bottom:3px #008bb8 solid;
+                border-left:3px #008bb8 solid;
+                border-right:3px #008bb8 solid;
+                border-radius:0px 0px 5px 5px;
+                padding:5px;
+                padding-bottom:15px;
+                text-align:center;
+                position:relative;
+                width:212px;
+                font-weight:400;
+                font-size:20px;
+                margin: 0px 5px 0px 5px;
+            }
+    
+</style>
+</head>
+    <body onload="generate()">
+    
+        <script>
+    
+var aok = ["mathematics", "natural sciences", "human sciences", "arts", "history", "ethics", "religious knowledge systems", "indigenous knowledge systems"];
+
+var wok = ["language", "sense perception", "emotion", "reason", "imagination", "faith", "intuition", "memory"];
+
+var ki = ["belief", "uncertainty", "culture", "interpretation", "justice", "perception", "technology", "justification", "values", "explanation", "truth"];
+
+
+function generate() {
+
+    var first = aok[Math.floor(Math.random() * 8)];
+
+    one = document.getElementById('one');
+    if (first == "religious knowledge systems") {
+        one.style.fontSize = "15px";
+        one.style.paddingBottom = "7px";
+        one.style.paddingTop = "10px";
+    } else if (first == "indigenous knowledge systems") {
+        one.style.fontSize = "14px";
+        one.style.paddingBottom = "8px";
+        one.style.paddingTop = "12px";
+    } else {
+        one.style.fontSize = "20px";
+        one.style.paddingBottom = "0px";
+        one.style.paddingTop = "0px";
+        
+    }
+
+    document.getElementById("one").innerHTML = first;
+    cont = document.getElementById("cont");
+
+    document.getElementById("two").innerHTML = wok[Math.floor(Math.random() * 8)];
+
+    document.getElementById("three").innerHTML = ki[Math.floor(Math.random() * 11)];
+}
+</script>
+
+        <div id="content">
+            <h1><span>t</span>heory of <span>k</span>nowledge<br><span>p</span>rompt <span>g</span>enerator</h1>
+            <div id="cont">
+            <div class="nametop">
+                <div class="title">area of knowledge</div>
+            </div>
+            <div class="namebottom"><p id="one" style="font-size: 20px; padding-bottom: 0px; padding-top: 0px;">human sciences</p></div>
+            </div>
+            
+            <div id="cont">
+            <div class="nametop">
+                <div class="title">way of knowing</div>
+            </div>
+            <div class="namebottom"><p id="two">sense perception</p></div>
+            </div>
+            
+            <div id="cont">
+            <div class="nametop">
+                <div class="title">knowledge issue</div>
+            </div>
+            <div class="namebottom"><p id="three">justification</p></div>
+            </div>
+            
+            <button onclick="generate()">generate new prompt</button>
+            <i><a href="/q"><p style="color:gray; text-align:right; font-size:11px; text-decoration:underline"> TOK question generator </p></a></i>
+        </div>
+        
+    </body></html>
